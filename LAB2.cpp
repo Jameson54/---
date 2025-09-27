@@ -22,8 +22,10 @@ int main() {
     
   cout << "n = ";
   cin  >> n;
+  
+  cout << fixed << setprecision(3);
     
-  while (n < 50) {
+  while (n < 50.0) {
     p = p0 * pow((V / (V + V0)), n);
     n = n + 10;
 
@@ -31,12 +33,12 @@ int main() {
 }
 
   do {
-    n = n + 50;
+    n = n + 50.0;
     p = p0 * pow((V / (V + V0)), n);
   
     cout << "n = " << n << "\t \t" << p << endl;
   
-} while (n < 250);
+} while (n < 250.0);
 
     return 0;
 }
