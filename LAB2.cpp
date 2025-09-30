@@ -10,7 +10,10 @@ using namespace std;
 
 int main() {
   double V, V0, p0, p, n;
-
+  double shag = 10.0;
+  double sred_znachenie = 50.0;
+  double max_znachenie = 250.0;
+  
   cout << "V = ";
   cin  >> V;
 
@@ -27,7 +30,7 @@ int main() {
     
   while (n < 50.0) {
     p = p0 * pow((V / (V + V0)), n);
-    n = n + 10;
+    n = n + 10.0;
 
     cout << "n = " << n << "\t \t" << p << endl;  
 }
@@ -37,8 +40,8 @@ int main() {
     p = p0 * pow((V / (V + V0)), n);
   
     cout << "n = " << n << "\t \t" << p << endl;
-  
-} while (n < 250.0);
+}
 
-    return 0;
+  while (n < 250.0);
+  return 0;
 }
