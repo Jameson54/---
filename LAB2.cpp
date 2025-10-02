@@ -2,6 +2,7 @@
  * Автор: Кондратенко Павел    *
  * Вариант: 7                  *
  *******************************/
+ 
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -10,7 +11,7 @@ using namespace std;
 
 int main() {
   double V, V0, p0, p, n;
-  double shag = 10.0;
+  double step = 10.0;
   double sred_znachenie = 50.0;
   double max_znachenie = 250.0;
   
@@ -28,20 +29,20 @@ int main() {
   
   cout << fixed << setprecision(3);
     
-  while (n < 50.0) {
+  while (n < sred_znachenie) {
     p = p0 * pow((V / (V + V0)), n);
-    n = n + 10.0;
+    n = n + step;
 
-    cout << "n = " << n << "\t \t" << p << endl;  
-}
+  cout << "n = " << n << "\t \t" << p << endl;  
+  }
 
   do {
-    n = n + 50.0;
+    n = n + sred_znachenie;
     p = p0 * pow((V / (V + V0)), n);
   
-    cout << "n = " << n << "\t \t" << p << endl;
-}
-
-  while (n < 250.0);
+  cout << "n = " << n << "\t \t" << p << endl;
+  }
+  
+  while (n < max_znachenie);
   return 0;
 }
