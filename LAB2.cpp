@@ -11,9 +11,10 @@ using namespace std;
 
 int main() {
   double V, V0, p0, p, n;
-  double step = 10.0;
-  double sred_znachenie = 50.0;
-  double max_znachenie = 250.0;
+  double initialStep = 10.0;
+  double averageValue = 50.0;
+  double finalValue = 250.0;
+  int numberOfDigitsAfterTheDecimalPoint = 3.0;
   
   cout << "V = ";
   cin  >> V;
@@ -27,22 +28,19 @@ int main() {
   cout << "n = ";
   cin  >> n;
   
-  cout << fixed << setprecision(3);
+  cout << fixed << setprecision(numberOfDigitsAfterTheDecimalPoint);
     
-  while (n < sred_znachenie) {
+  while (n < averageValue) {
     p = p0 * pow((V / (V + V0)), n);
-    n = n + step;
-
-  cout << "n = " << n << "\t \t" << p << endl;  
+    n = n + initialStep;
+    cout << "n = " << n << "\t \t" << p << endl;
   }
 
   do {
-    n = n + sred_znachenie;
+    n = n + averageValue;
     p = p0 * pow((V / (V + V0)), n);
-  
-  cout << "n = " << n << "\t \t" << p << endl;
-  }
-  
-  while (n < max_znachenie);
+    cout << "n = " << n << "\t \t" << p << endl;
+  } while (n < finalValue);
+ 
   return 0;
 }
